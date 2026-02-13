@@ -27,6 +27,19 @@ public class WaveController : MonoBehaviour
         }
     }
 
+    public void ChangeWave(Wave wave)
+    {
+        currentWave = wave;
+
+        enemySpawned = 0;
+        nextSpawnTime = Time.time;
+    }
+
+    public bool isCompeleted()
+    {
+        return enemySpawned >= currentWave.enemyCount;
+    }
+
     void Spawn()
     {
         // Create a new variable "enemyIndex" and randomize the range between 0 to enemyPrefabs length
